@@ -1,0 +1,9 @@
+.card .horizontal .card-image{
+	max-width: 20%;
+}
+
+.card.card-action{
+	padding: 7px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
