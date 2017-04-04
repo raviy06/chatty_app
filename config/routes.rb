@@ -2,17 +2,9 @@ Rails.application.routes.draw do
 
   root 'rooms#index'
 
-  get 'rooms/new'
+  resources :rooms, only: [:new, :create, :show, :index]
 
-  post 'rooms/create'
-
-  get 'rooms/show'
-
-  get 'users/index'
-
-  get 'users/new'
-
-  post 'users/create'
+  resources :users, only: [:new, :create, :index]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
