@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-  	unless session[:token] = nil
-  		@current_user = User.find_by(token: session[:token])
-  	end
+  	
+  		@current_user = User.find_by(name: session[:name])
+  	
   end
 end

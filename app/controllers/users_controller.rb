@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  def index
-  end
 
   def new
   	@user = User.new
@@ -10,10 +8,10 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
   		flash[:notice] = "You have signed up successfully."
-  		redirect_to root_path
+  		redirect_to rooms_path
   		session[:name] = @user.name
-  		session[:token] = @user.token
   		session[:expires_at] = Time.now + 2.hours
+      puts @user.token
   	else
   		render :new
   	end

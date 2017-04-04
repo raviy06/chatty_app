@@ -12,6 +12,7 @@ class RoomsController < ApplicationController
   end
 
   def create
+    #@current_user = User.find_by(name: session[:name])
   	@room = @current_user.rooms.build(room_params)
   	if @room.save
   		flash[:notice] = 'New Chat room created.'

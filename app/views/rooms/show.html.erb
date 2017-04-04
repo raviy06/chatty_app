@@ -1,16 +1,10 @@
-<h1><%= @room.title %></h1>
+<h1><%= @room.name %></h1>
 
 <div id="messages" data-room-id="<%= @room.id %>" >
   <%= render @room.messages %>
 </div>
 
-<%= form_for @message, url: '#' do |f| %>
-  <%= hidden_field_tag 'room_id', @room.id %>
-  <div class="form-group">
-    <%= f.label :body %>
-    <%= f.text_area :body, class: 'form-control' %>
-    <small class="text-muted">From 2 to 1000 characters</small>
-  </div>
-
-  <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
-<% end %>
+<form>
+	<label>Chat:</label>
+	<input type='text' data-behaviour='room_speaker'>
+</form>
