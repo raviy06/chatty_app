@@ -6,9 +6,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def current_user
-  	
-  		@current_user = User.find_by(name: session[:name])
-  	
+  def current_user  	
+  	@current_user = User.find_by(name: session[:name])  	
   end
 end

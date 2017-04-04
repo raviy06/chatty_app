@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 
   def logout
   	session[:name] = nil
-  	session[:token] = nil
   	redirect_to root_path
   end
 
@@ -28,6 +27,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-  	params.require(:user).permit(:name, :token)
+  	params.require(:user).permit(:name)
   end
 end

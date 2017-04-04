@@ -4,7 +4,11 @@
   <%= render @room.messages %>
 </div>
 
-<form>
-	<label>Chat:</label>
-	<input type='text' data-behaviour='room_speaker'>
-</form>
+<%= form_for @message, remote: true, authenticity_token: true do |f| %>
+  <%= f.label :your_message %>:
+  <%= f.text_area :body, class: "form-control", data: {textarea: "@message"} %>
+
+  <%= f.hidden_field :room_id, value: @room.id %>
+  <%= f.submit "send", class: "btn btn-primary", data: {send: "@message"} %>
+<% end %>
+
