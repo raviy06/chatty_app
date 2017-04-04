@@ -11,9 +11,9 @@ class UsersController < ApplicationController
   		redirect_to rooms_path
   		session[:name] = @user.name
   		session[:expires_at] = Time.now + 2.hours
-      puts @user.token
   	else
   		render :new
+      flash[:notice] = "You cannot continue without a username."
   	end
   end
 

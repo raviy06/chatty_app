@@ -1,14 +1,37 @@
-<h1><%= @room.name %></h1>
-
-<div id="messages" data-room-id="<%= @room.id %>" >
-  <%= render @room.messages %>
+<div class="container">
+	<div class="row">
+		<h2>Welcome to <%= @room.name %></h2>
+		<br>
+		<div class="row">
+			<div id="messages" data-room-id="<%= @room.id %>" >
+		  	<%= render @room.messages %>
+			</div>
+		</div>
+		
+		<br>
+		<hr style="width: 43%;">
+		<br>
+		<%= form_for @message, remote: true, authenticity_token: true do |f| %>
+		  
+		  <%= f.hidden_field :room_id, value: @room.id %>
+		    
+      <div class="row">
+        <div class="input-field col s11 m11">
+          <i class="material-icons prefix">mode_edit</i>
+          <textarea class="materialize-textarea" data-textarea="@message" name="message[body]" id="message_body" placeholder="Start chatting..." ></textarea>
+          
+        </div>
+      </div> 
+		  <div class="row">
+		  	<button class="btn waves-effect waves-light" type="submit" name="commit" value="send" data-send="@message" data-disable-with="send"  >Submit
+		    	<i class="material-icons right">send</i>
+		  	</button>
+		  	<%= link_to 'Back', rooms_path, :class => "btn waves-effect waves-light red" %>
+			</div>
+		  
+		<% end %>
+	</div>
 </div>
 
-<%= form_for @message, remote: true, authenticity_token: true do |f| %>
-  <%= f.label :your_message %>:
-  <%= f.text_area :body, class: "form-control", data: {textarea: "@message"} %>
 
-  <%= f.hidden_field :room_id, value: @room.id %>
-  <%= f.submit "send", class: "btn btn-primary", data: {send: "@message"} %>
-<% end %>
 

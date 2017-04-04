@@ -1,7 +1,16 @@
-<h1>Chat rooms</h1>
+<div class="container">
+	<div class="row">
+		<h2>Chat rooms</h2>
+		<%= link_to 'New chat room', new_room_path, class: 'btn aves-effect waves-light blue' %>
+	</div>
+	<div class="row">
+		<ul>
+		  <%= render @rooms %>
+		</ul>
+	</div>
+</div>
 
-<p class="lead"><%= link_to 'New chat room', new_room_path, class: 'btn btn-primary' %></p>
 
-<ul>
-  <%= render @rooms %>
-</ul>
+
+
+

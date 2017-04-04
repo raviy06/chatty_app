@@ -1,4 +1,16 @@
-<p class="card-text">
-  <span class="text-muted"><%= message.user.name %> at <%= message.timestamp %> says</span><br>
-  <%= message.body %>
-</p>
+<div class="col s11 m11">
+  <div class="card horizontal">
+    <div class="card-image">
+      <%= image_tag 'default.png', style: "height: 125px;" %>
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+        <%= message.body %>
+      </div>
+      <div class="card-action" style="padding: 7px; padding-left: 20px; padding-right: 25px;">
+        <div class="user-name grey-text"><%= message.user.name %>
+        <span class="time-stamp right red-text text-darken-1"><%= message.timestamp %></span></div>
+      </div>
+    </div>
+  </div>
+</div>
